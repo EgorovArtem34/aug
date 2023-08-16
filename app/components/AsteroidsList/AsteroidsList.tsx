@@ -5,12 +5,14 @@ import { AsteroidItem } from "../AsteroidItem/AsteroidItem";
 export const AsteroidsList = async () => {
   const { nextFetchUrl, countAsteroids, asteroids } = await getAsteroids();
   const sortedAsteroids = sortAsteroidsByDate(asteroids);
-  // console.log(countAsteroids, asteroids);
+
   return (
     <div className="">
-      {sortedAsteroids.map((asteroid) => (
-        <AsteroidItem asteroid={asteroid} key={asteroid.id} />
-      ))}
+      <ul>
+        {sortedAsteroids.map((asteroid) => (
+          <AsteroidItem asteroid={asteroid} key={asteroid.id} />
+        ))}
+      </ul>
     </div>
   );
 };
