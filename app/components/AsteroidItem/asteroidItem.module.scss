@@ -1,0 +1,68 @@
+.asteroidItem {
+  margin-bottom: 24px;
+  list-style: none;
+}
+
+.date {
+  margin-bottom: 8px;
+  font-family: Helvetica;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--white-base, #fff);
+}
+
+.container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.distance {
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.asteroid {
+  margin: auto 0;
+  grid-row: span 3;
+  background: url("../../assets/images/asteroid.png") no-repeat center / contain;
+}
+
+.asteroid.small {
+  width: 22px;
+  height: 24px;
+}
+.asteroid.big {
+  width: 36.667px;
+  height: 40px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: underline;
+}
+
+.dangerIcon {
+  margin-right: 5px;
+}
+
+.danger {
+  display: flex;
+  align-items: baseline;
+  // justify-content: center;
+}
+
+.orderInterface {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

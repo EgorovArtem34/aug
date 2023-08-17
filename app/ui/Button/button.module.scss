@@ -1,0 +1,28 @@
+.btn {
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 20px;
+  border: none;
+}
+
+.small {
+  padding: 2px 11px;
+  border-radius: 16px;
+}
+
+.big {
+  padding: 2px 11px;
+  border-radius: 24px;
+}
+
+.orange {
+  color: var(--orange-base, #f86600);
+}
+
+.red-smooth {
+  color: var(--red-smooth, #f5ded9);
+}
+
+.bg_orangeSmooth {
+  background: var(--orange-smooth, rgba(248, 102, 0, 0.15));
+}

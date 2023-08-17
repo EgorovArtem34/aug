@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
 :root {
   --bg-dark: #000000;
   --orange-text: #F86600;
@@ -5,9 +7,7 @@
   --white-base: #FFFFFF;
   --bg-gray: #232526;
   --gray-text: #E3E5E5;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --red-smooth: #F5DED9;
 }
 
 * {
@@ -25,6 +25,7 @@ body {
 body {
   color: var(--white-base, #FFFFFF);
   background-color: var(--bg-dark, #000000);
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 a {

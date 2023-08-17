@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import styles from "./DistanceTabs.module.scss";
+import React from "react";
+import styles from "./distanceTabs.module.scss";
 import { DistanceUnit } from "@/app/types";
 import { useApp } from "@/app/utils/hooks/useApp";
 

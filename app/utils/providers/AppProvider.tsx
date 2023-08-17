@@ -6,7 +6,7 @@ import { DistanceUnit } from '../../types';
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [asteroids, setAsteroids] = useState([]);
-  const [distanceType, setDistanceType] = useState<DistanceUnit>(DistanceUnit.lunar);
+  const [distanceType, setDistanceType] = useState<DistanceUnit>(DistanceUnit.kilometers);
 
   return (
     <AppContext.Provider

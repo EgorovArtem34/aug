@@ -1,0 +1,23 @@
+.tabs {
+  margin-bottom: 24px;
+  > :not(:last-child) {
+    margin-right: 10px;
+    padding-right: 5px;
+    border-right: 2px solid var(--white-base, #FFF);
+  }
+}
+
+.input {
+	// display: none;
+  position: absolute;
+  opacity: 0;
+}
+
+.label {
+  cursor: pointer;
+  text-decoration: var(--white-base, #FFF) solid underline;
+}
+
+.label.active {
+  text-decoration: none;
+}
