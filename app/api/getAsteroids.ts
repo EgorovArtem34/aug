@@ -25,3 +25,14 @@ export const getAsteroids = async (fetchUrl: string | null = null, day?: string)
     asteroids,
   };
 };
+
+export const getAsteroidById = async (id: string) => {
+  const data = await fetch(
+    `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${NASAKey}`,
+    // {
+    //   cache: "no-store",
+    // }
+  ).then((response) => response.json());
+  console.log('data', data);
+  return data;
+}

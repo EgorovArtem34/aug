@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import styles from './header.module.scss';
 
 export const Header = () => {
@@ -6,7 +7,9 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>ARMAGEDDON {currentYear}</h1>
+      <h1 className={styles.title}>
+        <Link href={'/'}>ARMAGEDDON {currentYear}</Link>
+      </h1>
       <span className={styles.text}>ООО “Команда им. Б. Уиллиса”.<br />
         Взрываем астероиды с 1998 года.</span>
     </header>

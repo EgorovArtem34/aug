@@ -11,12 +11,22 @@
 }
 
 .big {
-  padding: 2px 11px;
+  padding: 8px 16px;
   border-radius: 24px;
 }
 
 .orange {
   color: var(--orange-base, #f86600);
+
+  &:hover,
+  &:focus {
+    background-color: var(--orange-base, #f86600);
+    color: var(--white-base, #FFFFFF);
+  }
+}
+
+.white {
+  color: var(--white-base, #FFFFFF);
 }
 
 .red-smooth {
@@ -25,4 +35,7 @@
 
 .bg_orangeSmooth {
   background: var(--orange-smooth, rgba(248, 102, 0, 0.15));
+}
+.bg_orange {
+  background: var(--orange-base, #f86600);
 }

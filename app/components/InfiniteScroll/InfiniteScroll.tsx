@@ -8,13 +8,13 @@ import { useState, useEffect } from "react";
 import { Loader } from "../Loader/Loader";
 
 export const InfiniteScroll = () => {
-  const [fetching, setFetching] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
   const { sortedAsteroids, setSortedAsteroids, nextFetchUrl, setNextFetchUrl } =
     useApp();
 
   useEffect(() => {
     const fetchAsteroid = async () => {
-      if (fetching) {
+      if (isFetching) {
         const nexDate = matchDate(nextFetchUrl);
         const { nextFetchUrl: currentNextFetchUrl, asteroids } =
           await getAsteroids(nextFetchUrl, nexDate);
@@ -23,14 +23,14 @@ export const InfiniteScroll = () => {
           ...sortedAsteroids,
           ...sortAsteroidsByDate(asteroids),
         ]);
-        setFetching(false);
+        setIsFetching(false);
         setNextFetchUrl(currentNextFetchUrl);
       }
     };
 
     fetchAsteroid();
   }, [
-    fetching,
+    isFetching,
     nextFetchUrl,
     setNextFetchUrl,
     setSortedAsteroids,
@@ -46,7 +46,7 @@ export const InfiniteScroll = () => {
         (target.documentElement.scrollTop + window.innerHeight) <
         100
       ) {
-        setFetching(true);
+        setIsFetching(true);
       }
     },
     [nextFetchUrl]
@@ -58,7 +58,7 @@ export const InfiniteScroll = () => {
     return () => document.removeEventListener("scroll", scrollHandler);
   }, [scrollHandler]);
 
-  if (fetching) {
+  if (isFetching) {
     return <Loader />
   }
   return null;

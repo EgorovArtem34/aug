@@ -1,0 +1,21 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 10px;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 1em;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--orange-text, #f86600);
+}

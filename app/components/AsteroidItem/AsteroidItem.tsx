@@ -1,16 +1,18 @@
 "use client";
-import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import Link from 'next/link';
 import { DistanceUnit } from "@/app/types";
 import { defineDistance, defineSizeByDiameters } from "@/app/utils";
 import { regexToRemoveParentheses } from "@/app/utils/constants";
 import { formatDate } from "@/app/utils/formatDate";
 import { useApp } from "@/app/utils/hooks/useApp";
-import DangerIcon from '../../assets/danger.svg';
 import styles from "./asteroidItem.module.scss";
 import { Button } from '@/app/ui/Button/Button';
+import { Danger } from '../Danger/Danger';
 
 export const AsteroidItem = ({ asteroid }: any) => {
   const {
+    id,
     close_approach_data: [{ close_approach_date: approachDate, miss_distance }],
     name,
     estimated_diameter: {
@@ -64,7 +66,9 @@ export const AsteroidItem = ({ asteroid }: any) => {
         <div className={`${styles.asteroid} ${styles[currentSizeByDiameters]}`} />
 
         <div className={styles.data}>
-          <span className={styles.name}>{currentName}</span>
+          <Link href={`/asteroids/${id}`} >
+            <span className={styles.name}>{currentName}</span>
+          </Link>
           <span className={styles.diameter}>Ø {currentDiameters} м</span>
         </div>
       </div>
@@ -73,14 +77,7 @@ export const AsteroidItem = ({ asteroid }: any) => {
         <Button size='small' bg='orangeSmooth' color='orange'>
           ЗАКАЗАТЬ
         </Button>
-        {isDanger && (
-          <div className={styles.danger}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill=' #fc3' className={styles.dangerIcon}>
-              <path d="M19.64 16.36L11.53 2.3A1.85 1.85 0 0 0 10 1.21 1.85 1.85 0 0 0 8.48 2.3L.36 16.36C-.48 17.81.21 19 1.88 19h16.24c1.67 0 2.36-1.19 1.52-2.64zM11 16H9v-2h2zm0-4H9V6h2z" />
-            </svg>
-            <span>Опасен</span>
-          </div>
-        )}
+        {isDanger && <Danger />}
       </div>
     </li >
   );
