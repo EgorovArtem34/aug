@@ -5,14 +5,19 @@ import { AppContext } from "../contexts/AppContext";
 import { DistanceUnit } from '../../types';
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  const [asteroids, setAsteroids] = useState([]);
-  const [distanceType, setDistanceType] = useState<DistanceUnit>(DistanceUnit.kilometers);
+  const [sortedAsteroids, setSortedAsteroids] = useState([]);
+  const [distanceType, setDistanceType] = useState<DistanceUnit>(DistanceUnit.lunar);
+  const [nextFetchUrl, setNextFetchUrl] = useState<string>('');
 
   return (
     <AppContext.Provider
       value={{
         distanceType,
-        setDistanceType
+        setDistanceType,
+        sortedAsteroids,
+        setSortedAsteroids,
+        nextFetchUrl,
+        setNextFetchUrl,
       }}
     >
       {children}
