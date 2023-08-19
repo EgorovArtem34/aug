@@ -3,6 +3,11 @@
   font-weight: 700;
   line-height: 20px;
   border: none;
+  transition: all 0.5s ease;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .small {
@@ -13,13 +18,16 @@
 .big {
   padding: 8px 16px;
   border-radius: 24px;
+
+  &:not(:disabled):hover {
+    transform: scale(1.03);
+  }
 }
 
 .orange {
   color: var(--orange-base, #f86600);
 
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--orange-base, #f86600);
     color: var(--white-base, #FFFFFF);
   }
@@ -31,6 +39,10 @@
 
 .red-smooth {
   color: var(--red-smooth, #f5ded9);
+
+  &:hover {
+    color: var(--orange-base, #f86600);
+  }
 }
 
 .bg_orangeSmooth {

@@ -13,7 +13,14 @@ const textsForLunar = {
   text3: 'лунных орбит',
 }
 
+const textsForAsteroids = {
+  text1: 'астериод', 
+  text2: 'астероида',
+  text3: 'астероидов',
+}
+
 export const textsForValues = {
   lunar: textsForLunar,
+  asteroids: textsForAsteroids,
   // kilometers: textsForKilometers,
 }

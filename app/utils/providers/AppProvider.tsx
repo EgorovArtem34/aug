@@ -1,13 +1,16 @@
-
-'use client'
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 import { AppContext } from "../contexts/AppContext";
-import { DistanceUnit } from '../../types';
+import { DistanceUnit, IAsteroid } from "../../types";
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
   const [sortedAsteroids, setSortedAsteroids] = useState([]);
-  const [distanceType, setDistanceType] = useState<DistanceUnit>(DistanceUnit.lunar);
-  const [nextFetchUrl, setNextFetchUrl] = useState<string>('');
+  const [distanceType, setDistanceType] = useState<DistanceUnit>(
+    DistanceUnit.lunar
+  );
+  const [nextFetchUrl, setNextFetchUrl] = useState<string>("");
+  // не сделал через localStorage, подумал, что тогда могут храниться уже неактуальные астериоды
+  const [orderedAsteroidIds, setOrderedAsteroidIds] = useState<IAsteroid[]>([]);
 
   return (
     <AppContext.Provider
@@ -18,6 +21,8 @@ export const AppProvider = ({ children }: { children: React.ReactNode }) => {
         setSortedAsteroids,
         nextFetchUrl,
         setNextFetchUrl,
+        orderedAsteroidIds,
+        setOrderedAsteroidIds,
       }}
     >
       {children}

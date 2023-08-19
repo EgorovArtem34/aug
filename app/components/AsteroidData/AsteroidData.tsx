@@ -1,8 +1,9 @@
+import { IAsteroid } from "@/app/types";
 import { Danger } from "../Danger/Danger";
 import { ApproachCard } from "./ApproachCard/ApproachCard";
 import styles from "./asteroidData.module.scss";
 
-export const AsteroidData = ({ asteroidData }) => {
+export const AsteroidData = ({ asteroidData }: { asteroidData: IAsteroid }) => {
   const {
     designation,
     is_potentially_hazardous_asteroid: isDanger,
