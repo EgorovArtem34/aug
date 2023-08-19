@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
 import React from "react";
 import styles from "./page.module.scss";
-// import '@/app/globals.scss';
 import { getAsteroidById } from "@/app/api/getAsteroids";
-import { Footer, Header } from "@/app/modules";
-import { AppProvider } from "@/app/utils/providers/AppProvider";
+import { Header } from "@/app/modules";
 import { AsteroidData } from "@/app/components/AsteroidData/AsteroidData";
+import { Main } from "@/app/components/Main/Main";
+
+export const metadata: Metadata = {
+  title: "Asteroid data",
+  description: "more information about asteroid",
+};
 
 export default async function AsteroidPage({
   params,
@@ -15,14 +20,13 @@ export default async function AsteroidPage({
   const data = await getAsteroidById(id);
 
   return (
-    <AppProvider>
+    <>
       <Header />
-      <main className={styles.main}>
+      <Main>
         <div className={styles.container}>
           <AsteroidData asteroidData={data} />
         </div>
-      </main>
-      <Footer />
-    </AppProvider>
+      </Main>
+    </>
   );
 }

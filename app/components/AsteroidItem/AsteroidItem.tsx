@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 import Link from "next/link";
-import { DistanceUnit } from "@/app/types";
+import { DistanceUnit, IAsteroid } from "@/app/types";
 import { defineDistance, defineSizeByDiameters } from "@/app/utils";
 import { regexToRemoveParentheses } from "@/app/utils/constants";
 import { formatDate } from "@/app/utils/formatDate";
@@ -10,7 +10,13 @@ import styles from "./asteroidItem.module.scss";
 import { Button } from "@/app/ui/Button/Button";
 import { Danger } from "../Danger/Danger";
 
-export const AsteroidItem = ({ asteroid }: any) => {
+export const AsteroidItem = ({
+  asteroid,
+  isOrderPage = false,
+}: {
+  asteroid: IAsteroid;
+  isOrderPage?: boolean;
+}) => {
   const {
     id,
     close_approach_data: [{ close_approach_date: approachDate, miss_distance }],
@@ -20,13 +26,14 @@ export const AsteroidItem = ({ asteroid }: any) => {
     },
     is_potentially_hazardous_asteroid: isDanger,
   } = asteroid;
+
   const { distanceType, setOrderedAsteroidIds, orderedAsteroidIds } = useApp();
   const isOrdered = orderedAsteroidIds.includes(id);
   const formattedDate = formatDate(approachDate);
   const currentDiameters = Math.round(diametersMax);
   const currentSizeByDiameters = defineSizeByDiameters(currentDiameters);
   const currentName = name.replace(regexToRemoveParentheses, "");
-  const activeDistance = Math.round(miss_distance[distanceType]);
+  const activeDistance = Math.round(+miss_distance[distanceType]);
   const distanceUnitText =
     distanceType === DistanceUnit.kilometers
       ? "км"
@@ -91,7 +98,7 @@ export const AsteroidItem = ({ asteroid }: any) => {
       </div>
 
       <div className={styles.orderInterface}>
-        {isOrdered ? (
+        {isOrderPage ? '' : isOrdered ? (
           <Button
             size="small"
             bg="orangeSmooth"

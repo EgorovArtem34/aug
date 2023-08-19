@@ -1,4 +1,3 @@
-
 export interface IAppContext {
   distanceType: DistanceUnit;
   setDistanceType: React.Dispatch<React.SetStateAction<DistanceUnit>>;
@@ -6,8 +5,8 @@ export interface IAppContext {
   setSortedAsteroids: React.Dispatch<React.SetStateAction<IAsteroid[]>>;
   nextFetchUrl: string;
   setNextFetchUrl: React.Dispatch<React.SetStateAction<string>>;
-  orderedAsteroidIds: IAsteroid[];
-  setOrderedAsteroidIds: React.Dispatch<React.SetStateAction<IAsteroid[]>>;
+  orderedAsteroidIds: string[];
+  setOrderedAsteroidIds: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export enum DistanceUnit {
@@ -60,7 +59,6 @@ export interface IAsteroid {
   is_sentry_object: boolean;
   designation?: string;
   orbital_data?: OrbitalData;
-
 }
 
 interface Links {

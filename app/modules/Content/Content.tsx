@@ -1,16 +1,17 @@
 import React from "react";
 import { AsteroidsList } from "../../components/AsteroidsList/AsteroidsList";
-import styles from './main.module.scss';
+import styles from './content.module.scss';
 import { OrderBasket } from "@/app/components/OrderBasket/OrderBasket";
+import { Main } from "@/app/components/Main/Main";
 
-export const Main = () => {
+export const Content = () => {
 
   return (
-    <main className={styles.main}>
+    <Main className={'mr30'}>
       <div className={styles.container}>
         <AsteroidsList />
       </div>
       <OrderBasket />
-    </main>
+    </Main>
   );
 };
