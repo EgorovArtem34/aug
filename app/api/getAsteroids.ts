@@ -8,13 +8,15 @@ export const getAsteroids = async (
 ): Promise<any> => {
   const currentFetchUrl = fetchUrl
     ? fetchUrl
-    : `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentToday2}&end_date=${currentToday2}&api_key=${NASAKey}`;
+    : `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentToday}&end_date=${currentToday}&api_key=${NASAKey}`;
   const currentDate = day ? day : currentToday;
   try {
-    const data: any = await fetch(currentFetchUrl, {
-      // next: { revalidate: 60 },
-      // cache: "no-store",
-    }).then((response) => response.json());
+    const data: any = await fetch(
+      "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY",
+      {
+        // cache: "no-store",
+      }
+    ).then((response) => response.json());
     console.log("data!!!!!!!", data);
     const { links, element_count: countAsteroids, near_earth_objects } = data;
     const asteroids =
