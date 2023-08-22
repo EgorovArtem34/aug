@@ -1,23 +1,33 @@
 .tabs {
   margin-bottom: 24px;
-  > :not(:last-child) {
-    margin-right: 10px;
-    padding-right: 5px;
-    border-right: 2px solid var(--white-base, #FFF);
-  }
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.divider {
+  border-left: 1px solid var(--white-base, #fff);
+  width: 1px;
+  height: 11.5px;
 }
 
 .input {
-	// display: none;
+  // display: none;
   position: absolute;
   opacity: 0;
 }
 
 .label {
-  cursor: pointer;
-  text-decoration: var(--white-base, #FFF) solid underline;
+  cursor: url("/cursor.svg"), pointer;
+
+  text-decoration: var(--white-base, #fff) solid underline;
+  font-family: Helvetica;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 24px;
 }
 
 .label.active {
+  font-weight: 700;
   text-decoration: none;
 }

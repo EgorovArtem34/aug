@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import React from "react";
 import styles from "./page.module.scss";
 import { getAsteroidById } from "@/app/api/getAsteroids";
-import { Header } from "@/app/modules";
 import { AsteroidData } from "@/app/components/AsteroidData/AsteroidData";
 import { Main } from "@/app/components/Main/Main";
+import { Container } from "@/app/ui/Container/Container";
+import { Header } from "@/app/components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Asteroid data",
@@ -23,9 +24,9 @@ export default async function AsteroidPage({
     <>
       <Header />
       <Main>
-        <div className={styles.container}>
+        <Container type="asteroidData">
           <AsteroidData asteroidData={data} />
-        </div>
+        </Container>
       </Main>
     </>
   );

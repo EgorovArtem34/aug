@@ -1,13 +1,28 @@
 .main {
   display: flex;
+  padding-top: 8px;
   background: url("../../assets/images/earth.png"),
     -179.856px -16.699px / 205.953% 111.421% no-repeat;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 0 123px;
-  min-height: 80vh;
-}
+  background-position: 0 138px;
+  background-size: 30% 620px;
+  // min-height: 80vh;
+  flex: 1 1 auto;
 
-.mr30 {
-  margin-right: 30%;
+  @media (min-width: 1025px) and (max-width: 1300px) {
+    background-size: 30% 436px;
+  }
+  @media (max-width: 1025px) {
+    background-size: 377px 496px;
+    background-position: -209px 138px;
+    padding-top: 16px;
+  }
+  @media (max-width: 720px) {
+    background-position: -289px 138px;
+  }
+  @media (max-width: 510px) {
+    background-size: 377px 496px;
+    background-position: -329px 92px;
+  }
 }

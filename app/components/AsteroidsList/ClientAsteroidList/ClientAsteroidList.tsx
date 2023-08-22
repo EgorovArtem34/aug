@@ -18,7 +18,7 @@ export const ClientAsteroidList = ({
   const { sortedAsteroids, setSortedAsteroids, setNextFetchUrl } = useApp();
 
   useEffect(() => {
-    if (sortedAsteroids.length === 0) {
+    if (sortedAsteroids.length === 0 && asteroids?.length > 0) {
       setSortedAsteroids([...sortAsteroidsByDate(asteroids)]);
       setNextFetchUrl(nextFetchUrl);
     }

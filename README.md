@@ -1,31 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Тестовое задание
 
-## Getting Started
+Онлайн-сервис по мониторингу и уничтожению опасных астероидов на основе данных API NASA.
 
-First, run the development server:
+## Использованные технологии
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Next
+- TypeScript
+- scss
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Установка
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Склонируйте репозиторий `git clone https://github.com/EgorovArtem34/aug`
+2. Перейдите в директорию проекта `cd aug`
+3. Установите зависимости `make install`
+4. Запустите локальную версию `make start`
+5. Откройте локальную версию [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Скриншоты
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](https://raw.githubusercontent.com/EgorovArtem34/screenshots/master/aug/1.JPG)
+![](https://raw.githubusercontent.com/EgorovArtem34/screenshots/master/aug/2.JPG)
+![](https://raw.githubusercontent.com/EgorovArtem34/screenshots/master/aug/3.JPG)
 
 ## Deploy on Vercel
 

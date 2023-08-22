@@ -1,30 +1,41 @@
-import { dateRegex } from "../utils/constants";
-
-const todayDate = new Date().toLocaleDateString("en-ca");
+const currentToday = new Date().toLocaleDateString("en-ca");
+const currentToday2 = new Date().toISOString().slice(0, 10);
 const NASAKey = process.env.NASA__API__KEY;
 
-export const getAsteroids = async (fetchUrl: string | null = null, day?: string): Promise<any> => {
-  const currentFetchUrl = fetchUrl ? fetchUrl : `https://api.nasa.gov/neo/rest/v1/feed?start_date=${todayDate}&end_date=${todayDate}&api_key=${NASAKey}`;
-  const currentDate = day ? day : todayDate;
+export const getAsteroids = async (
+  fetchUrl: string | null = null,
+  day?: string
+): Promise<any> => {
+  const currentFetchUrl = fetchUrl
+    ? fetchUrl
+    : `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentToday2}&end_date=${currentToday2}&api_key=${NASAKey}`;
+  const currentDate = day ? day : currentToday;
   try {
-    const data = await fetch(
-      currentFetchUrl,
-      // {
-      //   cache: "no-store",
-      // }
-    ).then((response) => response.json());
-    const {
-      links: { next: nextFetchUrl },
-      element_count: countAsteroids,
-      near_earth_objects: { [currentDate]: asteroids },
-    } = data;
-  
+    const data: any = await fetch(currentFetchUrl, {
+      // next: { revalidate: 60 },
+      // cache: "no-store",
+    }).then((response) => response.json());
+    console.log("data!!!!!!!", data);
+    const { links, element_count: countAsteroids, near_earth_objects } = data;
+    const asteroids =
+      near_earth_objects &&
+      near_earth_objects[currentDate as typeof near_earth_objects]
+        ? near_earth_objects[currentDate as typeof near_earth_objects]
+        : [];
+
+    const nextFetchUrl = links?.next || "";
+    console.log(
+      data,
+      "!!!!!!!!!!!!!!!!!!!!!!!!!!!!",
+      currentToday,
+      currentFetchUrl
+    );
     return {
       nextFetchUrl,
       countAsteroids,
       asteroids,
     };
-  } catch(err: any) {
+  } catch (err: any) {
     throw new Error(err?.message);
   }
 };
@@ -32,7 +43,7 @@ export const getAsteroids = async (fetchUrl: string | null = null, day?: string)
 export const getAsteroidById = async (id: string) => {
   try {
     const data = await fetch(
-      `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${NASAKey}`,
+      `https://api.nasa.gov/neo/rest/v1/neo/${id}?api_key=${NASAKey}`
       // {
       //   cache: "no-store",
       // }
@@ -41,4 +52,4 @@ export const getAsteroidById = async (id: string) => {
   } catch (err: any) {
     throw new Error(err?.message);
   }
-}
+};

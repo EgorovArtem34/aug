@@ -5,14 +5,16 @@
 
 .title {
   margin-bottom: 8px;
-  font-family: 'Passion One';
+  font-family: "Passion One";
   font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: var(--orange-text, #F86600);
+  color: var(--orange-text, #f86600);
 }
 
 .text {
-  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }

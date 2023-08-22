@@ -12,15 +12,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({
   children,
   size,
-  color = 'white',
-  bg = 'orange',
+  color = "white",
+  bg = "orange",
   type = "button",
   ...rest
 }) => {
   // ${styles.color} ${styles.bg
   return (
     <button
-      className={`${styles.btn} ${styles[size]} ${styles[color]} ${styles[`bg_${bg}`]}`}
+      className={`${styles.btn} ${styles[size]} ${styles[color]} ${
+        styles[`bg_${bg}`]
+      }`}
       type={type}
       {...rest}
     >

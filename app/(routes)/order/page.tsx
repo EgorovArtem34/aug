@@ -1,6 +1,6 @@
+import { OrderPage } from "@/app/modules/OrderPage/OrderPage";
 import type { Metadata } from "next";
 import React from "react";
-import { OrderPage } from "@/app/components/OrderPage/OrderPage";
 
 export const metadata: Metadata = {
   title: "Asteroid data",

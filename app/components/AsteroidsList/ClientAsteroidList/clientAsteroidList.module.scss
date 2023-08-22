@@ -4,5 +4,9 @@
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
+
+  @media (max-width: 1025px) {
+    margin-bottom: 8px;
+  }
 }

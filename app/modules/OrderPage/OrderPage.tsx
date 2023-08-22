@@ -1,14 +1,16 @@
-'use client'
+"use client";
 import React, { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Footer, Header } from "@/app/modules";
+// import { useRouter } from "next/navigation";
 import { Main } from "@/app/components/Main/Main";
 import { useApp } from "@/app/utils/hooks/useApp";
 import { AsteroidItem } from "@/app/components/AsteroidItem/AsteroidItem";
-import styles from './orderPage.module.scss';
+import styles from "./orderPage.module.scss";
+import { Container } from "@/app/ui/Container/Container";
+import { Footer } from "../../components/Footer/Footer";
+import { Header } from "../../components/Header/Header";
 
 export const OrderPage = () => {
-  const router = useRouter();
+  // const router = useRouter();
   const { sortedAsteroids, orderedAsteroidIds, setOrderedAsteroidIds } =
     useApp();
 
@@ -17,11 +19,11 @@ export const OrderPage = () => {
       setOrderedAsteroidIds([]);
     };
   }, [setOrderedAsteroidIds]);
-  console.log(orderedAsteroidIds);
-  if (orderedAsteroidIds.length === 0) {
-    router.push(`/`);
-    return null;
-  }
+
+  // if (orderedAsteroidIds.length === 0) {
+  //   router.push(`/`);
+  //   return null;
+  // }
 
   const orderedAsteroids = sortedAsteroids?.filter((asteroid) =>
     orderedAsteroidIds.includes(asteroid.id)
@@ -31,7 +33,7 @@ export const OrderPage = () => {
     <>
       <Header />
       <Main>
-        <div className={styles.container}>
+        <Container>
           <ul>
             <h2 className={styles.title}>Заказ отправлен!</h2>
             {orderedAsteroids?.map((asteroid) => (
@@ -42,9 +44,9 @@ export const OrderPage = () => {
               />
             ))}
           </ul>
-        </div>
+        </Container>
       </Main>
       <Footer />
     </>
-  )
-}
+  );
+};

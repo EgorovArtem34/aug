@@ -93,16 +93,19 @@ export const AsteroidItem = ({
           <Link href={`/asteroids/${id}`}>
             <span className={styles.name}>{currentName}</span>
           </Link>
-          <span className={styles.diameter}>Ø {currentDiameters} м</span>
+          <span className={styles.diameter}>&#216; {currentDiameters} м</span>
         </div>
       </div>
 
       <div className={styles.orderInterface}>
-        {isOrderPage ? '' : isOrdered ? (
+        {isOrderPage ? (
+          ""
+        ) : isOrdered ? (
           <Button
             size="small"
             bg="orangeSmooth"
             color="red-smooth"
+            aria-label="В корзине"
             onClick={handleRemoveBasket}
           >
             В КОРЗИНЕ
@@ -112,6 +115,7 @@ export const AsteroidItem = ({
             size="small"
             bg="orangeSmooth"
             color="orange"
+            aria-label="Заказать"
             onClick={handleAddBasket}
           >
             ЗАКАЗАТЬ

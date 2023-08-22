@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  margin-right: 20.42%;
+  margin-left: 38.87%;
+
+  @media (min-width: 1025px) and (max-width: 1300px) {
+    margin-right: 11%;
+    margin-left: 35.2%;
+  }
+  @media (max-width: 1025px) {
+    margin-left: 30%;
+    margin-right: 5%;
+    padding: 0 8px;
+  }
+  @media (max-width: 530px) {
+    margin-left: 17%;
+  }
+}
+
+.asteroidData {
+  display: block;
+  margin-right: 0;
+  width: 55%;
+
+  @media (min-width: 1025px) {
+    margin-left: 38.87%;
+  }
+}

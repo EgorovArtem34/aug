@@ -1,10 +1,11 @@
-import { Content, Header } from "../modules";
+import { Header } from "../components/Header/Header";
+import { Content } from "../modules/Content/Content";
 
 export default function Home() {
   return (
-    <div className="container">
+    <>
       <Header />
       <Content />
-    </div>
+    </>
   );
 }

@@ -31,7 +31,7 @@ export const DistanceTabs = () => {
           onChange={() => changeActiveInput(DistanceUnit.kilometers)}
         />
       </label>
-
+      <div className={styles.divider}></div>
       <label
         className={`${styles.label} ${distanceType === DistanceUnit.lunar ? styles.active : ""
           }`}
